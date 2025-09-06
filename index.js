@@ -13,7 +13,7 @@ StartLine.classList.remove("hidden");
 
 searchBtn.addEventListener("click", async () => {
   const word = inputSearch.value.trim();
-  console.log(word);
+
   if (!word) {
     return;
   }
@@ -27,6 +27,7 @@ async function fetchMeaning(word) {
   const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
 
   try {
+    Notfound.classList.add("hidden");
     StartLine.classList.add("hidden");
     speaker.classList.add("hidden");
     meaningList.classList.add("hidden");
@@ -37,9 +38,9 @@ async function fetchMeaning(word) {
       notfound();
       return null;
     }
-    console.log("Response is there", res);
+
     const data = await res.json();
-    console.log(data);
+
     return data;
   } catch (error) {
     console.error("Network error:", error);
@@ -59,13 +60,11 @@ function renderMeanings(data) {
 
   const meanings = data[0].meanings[data[0].meanings.length - 1];
   const meaninglist = meanings.definitions;
-  console.log(meanings);
-  console.log("meaning list", meaninglist);
 
   meaninglist.map((def) => {
     const li = document.createElement("li");
     li.className = "mb-6 sm:mb-6";
-    console.log(def.definition);
+
     // Meaning section
     const p = document.createElement("p");
     const span = document.createElement("span");
