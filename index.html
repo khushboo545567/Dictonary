@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Dictionary</title>
+    <link href="output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-[#000000] h-full">
+    <div class="p-6 sm:p-10">
+      <!-- Search Section -->
+      <div
+        class="text-black mb-10 sm:mb-16 flex flex-col sm:flex-row justify-center gap-4 items-center"
+      >
+        <input
+          type="text"
+          placeholder="Search Word..."
+          class="bg-[#F0F0F0] w-full sm:w-auto px-6 sm:px-16 py-3 sm:py-4 rounded-full outline-none text-lg sm:text-xl"
+          id="inputSearch"
+        />
+        <button
+          class="text-black text-lg sm:text-xl bg-[#F0F0F0] px-6 sm:px-8 py-3 sm:py-4 rounded-full w-full sm:w-auto"
+          id="searchBtn"
+        >
+          Search
+        </button>
+      </div>
+
+      <!-- Results Section -->
+      <div
+        class="text-white text-center bg-[#1D1D1D] rounded-t-xl p-4 sm:p-6 text-base sm:text-lg"
+      >
+        <div
+          class="text-white text-xl sm:text-2xl font-bold hidden"
+          id="StartLine"
+        >
+          Find the meaning of the words.
+        </div>
+
+        <!-- Word + Speaker -->
+        <div
+          class="flex gap-2 sm:gap-4 justify-center items-center mb-4 sm:mb-6 flex-wrap"
+        >
+          <img
+            src="https://www.shutterstock.com/image-vector/speaker-icon-vector-illustration-volume-600nw-2497141739.jpg"
+            class="w-6 h-6 sm:w-[29px] sm:h-[30px] rounded-full cursor-pointer"
+            alt=""
+          />
+          <audio src="audio-file.mp3" id="audio"></audio>
+
+          <h1 class="text-2xl sm:text-3xl font-bold" id="title">Happy</h1>
+        </div>
+
+        <!-- Meaning List -->
+        <div class="flex justify-center">
+          <ul
+            class="w-full max-w-[500px] text-start rounded-md p-3 sm:p-4"
+            id="meaningList"
+          >
+            <li class="mb-4 sm:mb-6">
+              <p>
+                <span class="font-bold text-green-600">meaning:</span> Content,
+                satisfied (with or to do something); having no objection (to
+                something)
+              </p>
+              <p>
+                <span class="font-bold text-green-600">example: </span> Are you
+                happy to pay me back by the end of the week?
+              </p>
+            </li>
+            <li class="mb-4 sm:mb-6">
+              <p>
+                <span class="font-bold text-green-600">meaning:</span> Content,
+                satisfied (with or to do something); having no objection (to
+                something)
+              </p>
+              <p>
+                <span class="font-bold text-green-600">example: </span> Are you
+                happy to pay me back by the end of the week?
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <p
+          class="text-red-800 text-xl sm:text-2xl font-bold hidden"
+          id="Notfound"
+        >
+          Result not found for this word!
+        </p>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
