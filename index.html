@@ -34,12 +34,13 @@
           class="text-white text-xl sm:text-2xl font-bold hidden"
           id="StartLine"
         >
-          Find the meaning of the words.
+          Discover the meaning of any word instantly
         </div>
 
         <!-- Word + Speaker -->
         <div
-          class="flex gap-2 sm:gap-4 justify-center items-center mb-4 sm:mb-6 flex-wrap"
+          class="flex gap-2 sm:gap-4 justify-center items-center mb-4 sm:mb-6 flex-wrap hidden"
+          id="speaker"
         >
           <img
             src="https://www.shutterstock.com/image-vector/speaker-icon-vector-illustration-volume-600nw-2497141739.jpg"
@@ -48,16 +49,16 @@
           />
           <audio src="audio-file.mp3" id="audio"></audio>
 
-          <h1 class="text-2xl sm:text-3xl font-bold" id="title">Happy</h1>
+          <h1 class="text-2xl sm:text-3xl font-bold" id="title"></h1>
         </div>
 
         <!-- Meaning List -->
         <div class="flex justify-center">
           <ul
-            class="w-full max-w-[500px] text-start rounded-md p-3 sm:p-4"
+            class="w-full max-w-[500px] text-start rounded-md p-3 sm:p-4 hidden"
             id="meaningList"
           >
-            <li class="mb-4 sm:mb-6">
+            <!-- <li class="mb-4 sm:mb-6">
               <p>
                 <span class="font-bold text-green-600">meaning:</span> Content,
                 satisfied (with or to do something); having no objection (to
@@ -67,18 +68,7 @@
                 <span class="font-bold text-green-600">example: </span> Are you
                 happy to pay me back by the end of the week?
               </p>
-            </li>
-            <li class="mb-4 sm:mb-6">
-              <p>
-                <span class="font-bold text-green-600">meaning:</span> Content,
-                satisfied (with or to do something); having no objection (to
-                something)
-              </p>
-              <p>
-                <span class="font-bold text-green-600">example: </span> Are you
-                happy to pay me back by the end of the week?
-              </p>
-            </li>
+            </li> -->
           </ul>
         </div>
 
@@ -87,6 +77,10 @@
           id="Notfound"
         >
           Result not found for this word!
+        </p>
+
+        <p class="text-2xl text-white font-bold hidden" id="loading">
+          Loading........
         </p>
       </div>
     </div>
