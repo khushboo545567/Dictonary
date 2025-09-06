@@ -7,20 +7,45 @@ const meaningList = document.getElementById("meaningList");
 const Notfound = document.getElementById("Notfound");
 const speaker = document.getElementById("speaker");
 const loading = document.getElementById("loading");
+const playBtnAudio = document.getElementById("playBtnAudio");
 
 Notfound.classList.add("hidden");
 StartLine.classList.remove("hidden");
 
-searchBtn.addEventListener("click", async () => {
+// THIS IS DONE TO HANDLE BOTH PRESS ENTER AND CLICK EVENT
+async function handleSearch() {
   const word = inputSearch.value.trim();
 
-  if (!word) {
-    return;
-  }
+  if (!word) return;
+
   inputSearch.value = "";
+
   const data = await fetchMeaning(word);
   if (!data) return;
+
   renderMeanings(data);
+}
+
+// searchBtn.addEventListener("click", async () => {
+//   const word = inputSearch.value.trim();
+
+//   if (!word) {
+//     return;
+//   }
+//   inputSearch.value = "";
+//   const data = await fetchMeaning(word);
+//   if (!data) return;
+//   renderMeanings(data);
+// });
+
+// ✅ 1. When clicking the button
+searchBtn.addEventListener("click", handleSearch);
+
+// ✅ 2. When pressing Enter inside the input
+inputSearch.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    handleSearch();
+  }
 });
 
 async function fetchMeaning(word) {
@@ -97,3 +122,8 @@ function notfound() {
   meaningList.classList.add("hidden");
   Notfound.classList.remove("hidden");
 }
+
+// ADD VOICE
+playBtnAudio.addEventListener("click", () => {
+  audio.play();
+});
